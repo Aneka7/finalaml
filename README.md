@@ -45,6 +45,32 @@ Key Objectives:
 - Train-Test Split: 
   - 80% Training
   - 20% Testing
+import kagglehub
+
+def download_diabetic_retinopathy_dataset(dataset_name, target_path="./data"):
+    """
+    Downloads the specified Kaggle dataset using kagglehub.
+
+    Args:
+        dataset_name (str): The Kaggle dataset identifier (e.g., 'sovitrath/diabetic-retinopathy-224x224-gaussian-filtered').
+        target_path (str): The directory where the dataset will be downloaded.
+
+    Returns:
+        str: The local path to the dataset files.
+    """
+    print(f"Downloading dataset '{dataset_name}'...")
+    path = kagglehub.dataset_download(dataset_name, target_path)
+    print("Download complete.")
+    print("Path to dataset files:", path)
+    return path
+
+if __name__ == "__main__":
+    # Replace with the correct dataset identifier from Kaggle
+    dataset_name = "sovitrath/diabetic-retinopathy-224x224-gaussian-filtered"
+    download_path = "./data"
+    
+    # Download the dataset
+    dataset_path = download_diabetic_retinopathy_dataset(dataset_name, download_path)
 
 ---
 
